@@ -28,25 +28,26 @@ namespace CSharpKoans
         public void AssertWithMessage()
         { 
 
-            Assert.IsTrue(false, "This should be true -- Please fix this");
-            // To understand reality, we must compare our expectations against reality. 
+            Assert.IsTrue(false, "This should be true -- Please fix this"); 
         }
+
+        // To understand reality, we must compare our expectations against reality.
         [Koan]
         public void AssertEquality()
         {
             var expected_value = 1 + 1;
-            var actual_value = __;
-         
+            var actual_value = 0;
 
             Assert.AreEqual(expected_value, actual_value);
         }
+
         // Sometimes we will ask you to fill in the values
         [Koan]
         public void FillInValues()
         {
+            const string __ = "FILL ME IN";
+
             Assert.AreEqual(1 + 1, __);
         }
-
-        const string __ = "FILL ME IN";
     }
 }
