@@ -20,15 +20,16 @@ namespace CSharpKoans
         public void AssertTruth()
         {  
             // This should be true
-             Assert.IsTrue(false);
+            //Mark -- Updated argument to true
+             Assert.IsTrue(true);
         }
 
         // Enlightenment may be more easily achieved with appropriate  messages. 
         [Koan]
         public void AssertWithMessage()
         { 
-
-            Assert.IsTrue(false, "This should be true -- Please fix this"); 
+            //Mark -- Changed first argument to true
+            Assert.IsTrue(true, "This should be true -- I made it true."); 
         }
 
         // To understand reality, we must compare our expectations against reality.
@@ -36,7 +37,8 @@ namespace CSharpKoans
         public void AssertEquality()
         {
             var expected_value = 1 + 1;
-            var actual_value = 0;
+            //Mark -- Updated value from 0 to 2
+            var actual_value = 2;
 
             Assert.AreEqual(expected_value, actual_value);
         }
@@ -45,9 +47,10 @@ namespace CSharpKoans
         [Koan]
         public void FillInValues()
         {
-            const string __ = "FILL ME IN";
+            //Mark -- Fill in value, add int.Parse call.
+            const string __ = "2";
 
-            Assert.AreEqual(1 + 1, __);
+            Assert.AreEqual(1 + 1, int.Parse(__));
         }
     }
 }

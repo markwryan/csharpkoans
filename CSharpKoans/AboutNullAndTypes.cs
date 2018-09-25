@@ -17,7 +17,7 @@ namespace CSharpKoans
         [Koan]
         public void MethodsCannotBeCalledOnNull()
         { 
-            MyClass myClass = null;
+            MyClass myClass = new MyClass();
             myClass.AMethod();
 
             // once we initialize a reference type we can call methods on it
@@ -29,7 +29,7 @@ namespace CSharpKoans
         [Koan]
         public void ComparingNulls()
         {
-            Assert.AreEqual(___, null==null);
+            Assert.AreEqual(true, null==null);
         }
 
 
@@ -41,7 +41,7 @@ namespace CSharpKoans
 
             // Equals applied to any null object...
             bool b = (t.Equals(s));
-            Assert.AreEqual(___, b);
+            Assert.AreEqual(false, b);
         }
 
         [Koan]
@@ -51,7 +51,7 @@ namespace CSharpKoans
             string t = String.Empty;
 
             bool b = (s == t);
-            Assert.AreEqual(___, b);
+            Assert.AreEqual(false, b);
 
         }
 
@@ -71,7 +71,7 @@ namespace CSharpKoans
             int i = new int();
             int j = 0;
 
-            Assert.AreEqual(___, i==j);
+            Assert.AreEqual(true, i==j);
         }
 
         [Koan]
@@ -80,13 +80,13 @@ namespace CSharpKoans
          
             /* to make a value type null, declare it as nullable */
             int? nullableInt = null;
-            Assert.AreEqual(___, nullableInt.HasValue);
+            Assert.AreEqual(false, nullableInt.HasValue);
 
             nullableInt = 0;
-            Assert.AreEqual(___, nullableInt.HasValue);
+            Assert.AreEqual(true, nullableInt.HasValue);
 
 
-            Assert.AreEqual(___, nullableInt.Value);
+            Assert.AreEqual(0, nullableInt.Value);
 
         }
        
