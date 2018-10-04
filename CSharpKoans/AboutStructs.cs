@@ -1,3 +1,4 @@
+using System;
 using CSharpKoans.Core;
 using NUnit.Framework;
 
@@ -9,6 +10,11 @@ namespace CSharpKoans
         {
             public double X;
             public double Y;
+
+            internal double Distance(Point p2)
+            {
+                return Math.Sqrt(Math.Pow((p2.X - this.X),2) + Math.Pow((p2.Y - this.Y), 2));
+            }
         }
 
         private const double FILL_ME_N = -1;
@@ -18,8 +24,8 @@ namespace CSharpKoans
         {
             var pt = new Point();
 
-            Assert.AreEqual(FILL_ME_N, pt.X);
-            Assert.AreEqual(FILL_ME_N, pt.Y);
+            Assert.AreEqual(0.0d, pt.X);
+            Assert.AreEqual(0.0d, pt.Y);
         }
 
         [Koan]
@@ -36,10 +42,10 @@ namespace CSharpKoans
             pt2.X *= 2;
             pt2.Y *= 2;
 
-            Assert.AreEqual(FILL_ME_N, pt1.X);
-            Assert.AreEqual(FILL_ME_N, pt1.Y);
-            Assert.AreEqual(FILL_ME_N, pt2.X);
-            Assert.AreEqual(FILL_ME_N, pt2.Y);
+            Assert.AreEqual(3d, pt1.X);
+            Assert.AreEqual(4d, pt1.Y);
+            Assert.AreEqual(6d, pt2.X);
+            Assert.AreEqual(8d, pt2.Y);
         }
 
         [Koan]
@@ -55,7 +61,7 @@ namespace CSharpKoans
 
             pt1.X = 12;
 
-            Assert.AreEqual(FILL_ME_N, ((Point)pt2).X);
+            Assert.AreEqual(3d, ((Point)pt2).X);
         }
 
         [Koan]
@@ -70,8 +76,8 @@ namespace CSharpKoans
             double distance = -1;
 
             // Uncomment this line and implement the distance property:
-            // Hint: The System.Math class has a Sqrt() method that calculates Square ruuts.
-            // distance = pt1.Distance();
+            // Hint: The System.Math class has a Sqrt() method that calculates Square roots.
+            distance = pt1.Distance(new Point());
 
             Assert.AreEqual(5, distance);
         }
