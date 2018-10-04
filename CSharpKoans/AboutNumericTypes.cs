@@ -10,19 +10,19 @@ namespace CSharpKoans
         {
             var i = 42;
 
-            // What type is i?
+            // Update typeof to match the type of i
             Assert.AreEqual(typeof(string), i.GetType());
         }
 
         [Koan]
         public void LossyConversionsAreExplicit()
         {
-            int initialValue = 5;
-            double implicitlyConverted = initialValue;
+            const int initialValue = 5;
+            const double implicitlyConverted = initialValue;
 
-            int finalValue = default(int);
+            var finalValue = 0;
             // uncomment this line and fix the compiler error:
-            //finalValue = implicitlyConverted;
+            // finalValue = implicitlyConverted;
 
             Assert.AreEqual(initialValue, finalValue);
         }
@@ -30,10 +30,10 @@ namespace CSharpKoans
         [Koan]
         public void IntegerMathPerformsRounding()
         {
-            int numerator = 27;
-            int denominator = 5;
+            const int numerator = 27;
+            const int denominator = 5;
 
-            int expected = default(int);
+            var expected = "[__int__]";
             int actual = numerator / denominator;
             Assert.AreEqual(expected, actual);
         }
@@ -54,18 +54,19 @@ namespace CSharpKoans
         {
             double[] values = new double[1000000];
 
-            double total = 0.0;
+            double total = 0.000;
             double increment = 0.001; // This is 1/1000
 
             // rewrite this loop to minimize the accumulating
             // rounding error
             for (int i = 0; i < 1000000; i++)
             {
+                //Update this assignment
+                total = total + increment;
                 values[i] = total;
-                total += increment;
             }
-
-            Assert.AreEqual(1000.0, values[999999]);
+            var testVal = values[999999];
+            Assert.AreEqual(1000.0, testVal);
         }
 
         [Koan]
@@ -78,10 +79,10 @@ namespace CSharpKoans
 
             j -= 200;
 
-            Assert.AreEqual(default(int), i);
+            Assert.AreEqual("[__int__]", i);
             // You may need to look at the value of j in the debugger to
             // fix this one:
-            Assert.AreEqual(default(uint), j);
+            Assert.AreEqual("[__int__]", j);
         }
 
         [Koan]

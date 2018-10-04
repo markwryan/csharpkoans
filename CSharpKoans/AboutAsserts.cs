@@ -16,11 +16,11 @@ namespace CSharpKoans
         [Koan]
         public void AssertTruth()
         {  
-            // Update this assert to be true
+            // Update this assert to pass
              Assert.IsTrue(false);
         }
 
-        // Enlightenment may be more easily achieved with appropriate  messages. 
+        // Enlightenment may be more easily achieved with appropriate messages. 
         [Koan]
         public void AssertWithMessage()
         { 
@@ -31,18 +31,18 @@ namespace CSharpKoans
         [Koan]
         public void AssertEquality()
         {
-            var expected_value = 1 + 1;
+            const int expected_value = 1 + 1;
             //Update the actual value to match the expected value
             var actual_value = 0;
 
             Assert.AreEqual(expected_value, actual_value);
         }
 
-        // Sometimes we will ask you to fill in the values, using the placeholder `[_______]`. (These might not always be filled in as strings!)
+        // Sometimes we will ask you to fill in the values, using the placeholder `[__expected-type__]`.)
         [Koan]
         public void FillInValues()
         {
-            Assert.AreEqual(1 + 1, "[______]");
+            Assert.AreEqual(1 + 1, "[__int__]");
         }
     }
 }
